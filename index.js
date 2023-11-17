@@ -28,6 +28,9 @@ async function run() {
     return;
   }
 
+  reach /= 100;
+  confidence /= 100;
+
   const score = (reach * impact * confidence) / effort;
 
   core.setOutput('score', score);
