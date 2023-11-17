@@ -1,8 +1,8 @@
 name: Scorer Action
 description: Cacluates the score of an issue/pr
 inputs:
-  priority:
-    description: 'The priority of the issue/pr'
+  values:
+    description: 'CSV of Reach/Impact/Confidence/Effort'
     required: true
 outputs:
   score:

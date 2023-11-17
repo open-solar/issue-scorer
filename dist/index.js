@@ -26176,13 +26176,39 @@ var __webpack_exports__ = {};
 __nccwpck_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(2186);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
+/* eslint-disable no-console */
 
 // import * as github from '@actions/github';
 
 async function run() {
-  const priority = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('priority', { required: true });
+  const values = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('values', { required: true });
+  let [reach, impact, confidence, effort] = values.split(',');
 
-  _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput('score', priority);
+  reach = parseFloat(reach);
+  impact = parseFloat(impact);
+  confidence = parseFloat(confidence);
+  effort = parseFloat(effort);
+
+  if (
+    Number.isNaN(reach)
+    || Number.isNaN(impact)
+    || Number.isNaN(confidence)
+    || Number.isNaN(effort)
+  ) {
+    console.log(
+      "Couldn't resolve all RICE vars: ",
+      reach,
+      impact,
+      confidence,
+      effort,
+      values,
+    );
+    return;
+  }
+
+  const score = (reach * impact * confidence) / effort;
+
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput('score', score);
 }
 
 run();
