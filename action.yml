@@ -1,9 +1,32 @@
 name: Scorer Action
 description: Cacluates the score of an issue/pr
 inputs:
+
   values:
+    type: string
     description: 'CSV of Reach/Impact/Confidence/Effort'
     required: true
+
+  multiplier_reach:
+    type: number
+    description: 'Reach Multiplier'
+    default: 1
+
+  multiplier_impact:
+    type: number
+    description: 'Impact Multiplier'
+    default: 1
+
+  multiplier_confidence:
+    type: number
+    description: 'Confidence Multiplier'
+    default: 1
+
+  multiplier_effort:
+    type: number
+    description: 'Effort Multiplier'
+    default: 1
+
 outputs:
   score:
     value: ${{ steps.plus.outputs.result }}

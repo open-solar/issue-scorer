@@ -26176,6 +26176,7 @@ var __webpack_exports__ = {};
 __nccwpck_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(2186);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
+/* eslint-disable camelcase */
 /* eslint-disable no-console */
 
 // import * as github from '@actions/github';
@@ -26205,6 +26206,21 @@ async function run() {
     );
     return;
   }
+
+  reach /= 100;
+  confidence /= 100;
+
+  const multiplier_reach = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('multiplier_reach') || 1;
+  reach *= multiplier_reach;
+
+  const multiplier_impact = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('multiplier_impact') || 1;
+  impact *= multiplier_impact;
+
+  const multiplier_confidence = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('multiplier_confidence') || 1;
+  confidence *= multiplier_confidence;
+
+  const multiplier_effort = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('multiplier_effort') || 1;
+  effort *= multiplier_effort;
 
   const score = (reach * impact * confidence) / effort;
 
