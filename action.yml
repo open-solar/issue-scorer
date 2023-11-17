@@ -1,0 +1,16 @@
+name: Scorer Action
+description: Cacluates the score of an issue/pr
+inputs:
+  x:
+    default: 0
+  y:
+    default: 0
+outputs:
+  score:
+    value: ${{ steps.plus.outputs.result }}
+runs:
+  using: node16
+  main: dist/index.js
+branding:
+  icon: bookmark
+  color: purple
