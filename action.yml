@@ -1,10 +1,9 @@
 name: Scorer Action
 description: Cacluates the score of an issue/pr
 inputs:
-  x:
-    default: 0
-  y:
-    default: 0
+  priority:
+    description: 'The priority of the issue/pr'
+    required: true
 outputs:
   score:
     value: ${{ steps.plus.outputs.result }}
