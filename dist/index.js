@@ -26177,12 +26177,12 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(2186);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
 
-// import github from '@actions/github'
+// import * as github from '@actions/github';
 
 async function run() {
-  const priority = _actions_core__WEBPACK_IMPORTED_MODULE_0___default().getInput('priority', { required: true });
+  const priority = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getInput('priority', { required: true });
 
-  _actions_core__WEBPACK_IMPORTED_MODULE_0___default().setOutput('score', priority);
+  _actions_core__WEBPACK_IMPORTED_MODULE_0__.setOutput('score', priority);
 }
 
 run();
